@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+div.product_list {
+
+}
+
+div.product {
+    height: 200px;
+    width: 140px;
+    display: inline-block;
+    border: solid;
+    margin: 5px 5px 5px 5px;
+}
