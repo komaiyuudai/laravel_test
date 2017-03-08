@@ -31,7 +31,7 @@ class LoginController extends Controller
     protected $loginView = 'user.login';         // ログインページのview(デフォルトは「auth.authenticate」)
     // protected $redirectTo = '/user/index';                // ログイン後のリダイレクト先(デフォルトは「/home」)
     protected $redirectAfterLogout = '/';                  // ログアウト後のリダイレクト先(デフォルトは「/」)
-    protected $username = 'mail';                         // 認証用のカラム(デフォルトは「email」)
+    protected $username = 'email';                         // 認証用のカラム(デフォルトは「email」)
     protected $maxLoginAttempts = 5;                       // ログインスロットルとなるまで最高のログイン失敗回数(デフォルトは「5」)
     protected $lockoutTime = 60;                           // ログインスロットルとなってからの待ち秒数(デフォルトは60)
 
@@ -51,14 +51,6 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         return view('user.login');
-    }
-
-    /**
-     * カラム名の変更
-     */
-    public function username()
-    {
-        return 'mail';
     }
 
 

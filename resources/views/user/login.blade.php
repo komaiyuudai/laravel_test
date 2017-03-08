@@ -10,15 +10,15 @@
                     <form class="form-horizontal" role="form" method="POST" action="/user/login">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('mail') ? ' has-error' : '' }}">
-                            <label for="mail" class="col-md-4 control-label">メールアドレス</label>
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">メールアドレス</label>
 
                             <div class="col-md-6">
-                                <input id="mail" type="email" class="form-control" name="mail" value="{{ old('mail') }}" required autofocus>
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
-                                @if ($errors->has('mail'))
+                                @if ($errors->has('email'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('mail') }}</strong>
+                                        <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
                             </div>
