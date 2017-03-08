@@ -1,0 +1,72 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Login</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form" method="POST" action="/user/login">
+                        {{ csrf_field() }}
+
+                        <div class="form-group{{ $errors->has('mail') ? ' has-error' : '' }}">
+                            <label for="mail" class="col-md-4 control-label">メールアドレス</label>
+
+                            <div class="col-md-6">
+                                <input id="mail" type="email" class="form-control" name="mail" value="{{ old('mail') }}" required autofocus>
+
+                                @if ($errors->has('mail'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('mail') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">パスワード</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control" name="password" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> ログインを保持
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    ログイン
+                                </button>
+
+                                <a class="btn btn-link" href="{{ route('user.password.request') }}">
+                                    パスワードを忘れた方はこちらから
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <a href="{{ route('user.register') }}">新規登録はこちらから</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
