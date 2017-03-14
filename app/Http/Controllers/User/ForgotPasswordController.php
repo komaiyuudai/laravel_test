@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 use Password;
+use Auth;
 
 class ForgotPasswordController extends Controller
 {
@@ -48,4 +49,11 @@ class ForgotPasswordController extends Controller
         return Password::broker('user');
     }
 
+    /**
+     * guard指定
+     */
+    protected function guard()
+    {
+        return Auth::guard('user');
+    }
 }

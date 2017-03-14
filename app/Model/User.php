@@ -6,7 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Contracts\Auth\CanResetPassword;
 // パスワードリセット
-use Illuminate\Auth\Notifications\ResetPassword as ResetPasswordNotification;
+use App\Http\Controllers\User\ResetPassword as ResetPasswordNotification;
 
 class User extends Authenticatable implements CanResetPassword
 {

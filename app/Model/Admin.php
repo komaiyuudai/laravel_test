@@ -4,8 +4,11 @@ namespace App\Model;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\CanResetPassword;
+// パスワードリセット
+use App\Http\Controllers\Admin\ResetPassword as ResetPasswordNotification;
 
-class Admin extends Authenticatable
+class Admin extends Authenticatable implements CanResetPassword
 {
     use Notifiable;
 
@@ -17,7 +20,7 @@ class Admin extends Authenticatable
     protected $fillable = [
         'name',
         'login_id',
-        'mail',
+        'email',
         'password',
     ];
 
@@ -30,4 +33,15 @@ class Admin extends Authenticatable
         'password',
         'remember_token',
     ];    
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
+    }
 }

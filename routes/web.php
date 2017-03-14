@@ -22,7 +22,7 @@ Route::group(['prefix' => 'admin'], function() {
     // Authentication Routes...
     $this->get('login', 'Admin\LoginController@showLoginForm')->name('admin.login');
     $this->post('login', 'Admin\LoginController@login');
-    $this->post('logout', 'Admin\LoginController@logout')->name('admin.logout');
+    $this->get('logout', 'Admin\LoginController@logout')->name('admin.logout');
 
     // Registration Routes...
     $this->get('register', 'Admin\RegisterController@showRegistrationForm')->name('admin.register');

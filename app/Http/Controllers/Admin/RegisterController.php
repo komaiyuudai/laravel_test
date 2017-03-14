@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use Auth;
+
 class RegisterController extends Controller
 {
     /*
@@ -27,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -48,9 +50,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'name'      => 'required|max:255',
+            'email'     => 'required|email|max:255|unique:admins',
+            'password'  => 'required|min:6|confirmed',
         ]);
     }
 
@@ -63,9 +65,26 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return Admin::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'name'      => $data['name'],
+            'login_id'  => $data['login_id'],
+            'email'     => $data['email'],
+            'password'  => bcrypt($data['password']),
         ]);
+    }
+
+    /**
+     * 新規登録フォーム
+     */
+    public function showRegistrationForm()
+    {
+        return view('admin.register');
+    }
+
+    /**
+     * guard指定
+     */
+    protected function guard()
+    {
+        return Auth::guard('admin');
     }
 }

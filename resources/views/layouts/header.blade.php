@@ -5,9 +5,16 @@
         <li>買い物かご</li>
         <li>
             @if (!auth()->guard('user')->check())
-            <a href="/user/login">ログイン</a>
+            <a href="/user/login">会員ログイン</a>
             @else
-            <a href="/user/logout">ログアウト</a>
+            <a href="/user/logout">会員ログアウト</a>
+            @endif
+        </li>
+        <li>
+            @if (!auth()->guard('admin')->check())
+            <a href="/admin/login">店舗ログイン</a>
+            @else
+            <a href="/admin/logout">店舗ログアウト</a>
             @endif
         </li>
     </ul>
