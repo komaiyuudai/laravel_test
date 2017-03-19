@@ -8,3 +8,13 @@ body {
     margin: auto;
     width: 980px;
 }
+
+.left-content {
+    float: left;
+    width: 250px;
+}
+
+.right-content {
+    float: right;
+    width: 700px;
+}

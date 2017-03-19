@@ -53,4 +53,22 @@ Route::group(['prefix' => 'user', 'namespace' => 'User'], function() {
     $this->post('password/reset', 'ResetPasswordController@reset');
 });
 
-Route::get('/home', 'HomeController@index');
+// 店舗
+Route::group(['prefix' => 'store', 'namespace' => 'Store'], function() {
+    $this->get('/', 'StoreController@index');
+});
+
+// ブランド
+Route::group(['prefix' => 'brand', 'namespace' => 'Brand'], function() {
+    $this->get('/', 'BrandController@index');
+});
+
+// ランキング
+Route::group(['prefix' => 'ranking', 'namespace' => 'Ranking'], function() {
+    $this->get('/', 'RankingController@index');
+});
+
+// 検索
+Route::group(['prefix' => 'search', 'namespace' => 'Search'], function() {
+    $this->get('/', 'SearchController@index');
+});

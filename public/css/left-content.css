@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+div#left-search-menu ul {
+    padding-left: 0px;
+}
+
+div#left-search-menu ul li {
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+a.left-content-menu {
+    text-decoration: none;
+}
+
+a.left-content-menu:link {
+    color: #000000;
+}
+
+a.left-content-menu:hover {
+    color: #696969;
+    text-decoration: underline;
+}
