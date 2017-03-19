@@ -28,10 +28,8 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
-    protected $guard = 'user';                   // 使用するguard名(デフォルトはauth.phpのデフォルト設定してあるguard)
     protected $registerView = 'user.register';   // 新規登録画面のview(デフォルトは「auth.register」)
     protected $redirectAfterLogout = '/';                  // ログアウト後のリダイレクト先(デフォルトは「/」)
-    protected $username = 'email';                         // 認証用のカラム(デフォルトは「email」)
     protected $maxLoginAttempts = 5;                       // ログインスロットルとなるまで最高のログイン失敗回数(デフォルトは「5」)
     protected $lockoutTime = 60;                           // ログインスロットルとなってからの待ち秒数(デフォルトは60)
 
@@ -46,6 +44,22 @@ class LoginController extends Controller
     }
 
     /**
+     * guard指定
+     */
+    protected function guard()
+    {
+        return Auth::guard('user');
+    }
+
+    /**
+     * 認証用カラムの指定(デフォルトはemail)
+     */
+    public function username()
+    {
+        return 'email';
+    }
+
+    /**
      * ログインフォーム
      */
     public function showLoginForm()
@@ -53,11 +67,4 @@ class LoginController extends Controller
         return view('user.login');
     }
 
-    /**
-     * guard指定
-     */
-    protected function guard()
-    {
-        return Auth::guard('user');
-    }
 }

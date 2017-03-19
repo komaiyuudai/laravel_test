@@ -3,3 +3,8 @@
 #container {
     margin-top: 80px;
 }
+
+body {
+    margin: auto;
+    width: 980px;
+}
