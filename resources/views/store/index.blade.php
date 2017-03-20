@@ -1,17 +1,18 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+@section('header')
+    <link href="/css/store.css" rel="stylesheet" type="text/css">
+@endsection
 
-                <div class="panel-body">
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
+@section('title', 'ショップ一覧')
+
+@section('content')
+<div id="store-list">
+    <h2>ショップ一覧</h2>
+    @foreach ($stores as $store)
+    <span class="store-name">
+        <a href="/store/{{ $store->id }}">{{ $store->name }}</a>
+    </span>
+    @endforeach
 </div>
 @endsection

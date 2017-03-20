@@ -15,8 +15,7 @@
 //     return view('welcome');
 // });
 
-
-Route::get('/', 'IndexController@index');
+Route::get('/', 'TopController@index');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
     // Authentication Routes...
@@ -54,21 +53,27 @@ Route::group(['prefix' => 'user', 'namespace' => 'User'], function() {
 });
 
 // 店舗
-Route::group(['prefix' => 'store', 'namespace' => 'Store'], function() {
+Route::group(['prefix' => 'store'], function() {
     $this->get('/', 'StoreController@index');
 });
 
 // ブランド
-Route::group(['prefix' => 'brand', 'namespace' => 'Brand'], function() {
+Route::group(['prefix' => 'brand'], function() {
     $this->get('/', 'BrandController@index');
+    $this->get('/{brand_id}', 'BrandController@detail');
 });
 
 // ランキング
-Route::group(['prefix' => 'ranking', 'namespace' => 'Ranking'], function() {
+Route::group(['prefix' => 'ranking'], function() {
     $this->get('/', 'RankingController@index');
 });
 
 // 検索
-Route::group(['prefix' => 'search', 'namespace' => 'Search'], function() {
+Route::group(['prefix' => 'search'], function() {
     $this->get('/', 'SearchController@index');
+});
+
+// 商品
+Route::group(['prefix' => '{store_id}/{brand_id}/{product_id}'], function() {
+    $this->get('/', 'ProductController@index');
 });

@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+h2 {
+    border-bottom: solid 3px;
+}
+
+span.brand-name {
+    width: 320px;
+    display: inline-block;
+}
+
+span.brand-name a{
+    margin: 15px;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+}
+
+span.brand-name a:hover{
+    color: #696969;
+    margin-bottom: -3px;
+    border-bottom: solid 3px;
+}
+
+

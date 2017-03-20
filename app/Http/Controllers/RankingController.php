@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Ranking;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,6 +12,6 @@ class RankingController extends Controller
      */
     public function index()
     {
-        return vier('ranking.index');
+        return view('ranking.index');
     }
 }

@@ -1,24 +1,20 @@
 @extends('layouts.app')
 
 @section('header')
-    <link href="/css/left-content.css" rel="stylesheet" type="text/css">
-    <link href="/css/index.css" rel="stylesheet" type="text/css">
+    <link href="/css/brand.css" rel="stylesheet" type="text/css">
 @endsection
 
 @section('title', 'ブランド一覧')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    You are logged in!
-                </div>
-            </div>
+    <div id="brand">
+        <h2>ブランド一覧</h2>
+        <div id="brand-list">
+            @foreach ($brands as $brand)
+            <span class="brand-name">
+                <a href="/brand/{{ $brand->id }}">{{ $brand->name }}</a>
+            </span>
+            @endforeach
         </div>
     </div>
-</div>
 @endsection
