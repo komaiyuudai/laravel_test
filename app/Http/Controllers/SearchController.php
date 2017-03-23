@@ -7,6 +7,13 @@ use App\Http\Controllers\Controller;
 
 class SearchController extends Controller
 {
+
+    public function __construct()
+    {
+        parent::__construct();
+        
+    }
+
     /**
      * 検索フォーム
      */

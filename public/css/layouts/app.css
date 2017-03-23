@@ -18,3 +18,7 @@ body {
     float: right;
     width: 700px;
 }
+
+div#breadcrumb {
+    margin-bottom: 20px;
+}

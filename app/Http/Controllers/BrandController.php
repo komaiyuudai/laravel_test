@@ -19,6 +19,7 @@ class BrandController extends Controller
         ProductRepository $productRepository
     )
     {
+        parent::__construct();
         $this->brandRepository = $brandRepository;
         $this->productRepository = $productRepository;
     }
@@ -37,12 +38,11 @@ class BrandController extends Controller
     /**
      * ブランド商品一覧
      */
-    public function productList(Request $request)
+    public function detail(Request $request, $brandId)
     {
-        dd($request);
         // ブランド商品取得
-        $products = $this->productRepository->getBrandProducts();
+        $brand = $this->brandRepository->getBrandProducts($brandId);
 
-        return view('brand.product_list', compact('products'));
+        return view('brand.detail', compact('brand'));
     }
 }

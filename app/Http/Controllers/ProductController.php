@@ -15,11 +15,18 @@ class ProductController extends Controller
         ProductRepository $productRepository
     )
     {
+        parent::__construct();
         $this->productRepository = $productRepository;
     }
 
-    public function index()
+    /**
+     * 商品詳細
+     */
+    public function detail(Request $request, $storeId, $brandId, $productId)
     {
-        return view('product/index', compact('newProducts'));
+        // 商品取得
+        $product = $this->productRepository->getProduct($productId);
+
+        return view('product/detail', compact('product'));
     }
 }

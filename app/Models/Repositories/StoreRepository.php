@@ -17,4 +17,24 @@ class StoreRepository
             'name'
         )->orderBy('name')->get();
     }
+
+    /**
+     * 店舗商品取得
+     *
+     * @param int $id 店舗ID
+     */
+    public function getStoreProducts($id)
+    {
+        $q = Store::query();
+        $q->select('id', 'name');
+        $q->where('id', $id);
+        $q->with([
+            'products'  => function ($q) {
+                $q->select('id', 'name', 'price', 'store_id', 'brand_id');
+            }
+        ]);
+
+        return $q->first();
+    }
+
 }

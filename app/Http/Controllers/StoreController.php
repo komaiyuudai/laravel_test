@@ -15,6 +15,7 @@ class StoreController extends Controller
         StoreRepository $storeRepository
     )
     {
+        parent::__construct();
         $this->storeRepository = $storeRepository;
     }
 
@@ -27,5 +28,16 @@ class StoreController extends Controller
         $stores = $this->storeRepository->getStores();
 
         return view('store.index', compact('stores'));
+    }
+
+    /**
+     * 店舗商品一覧
+     */
+    public function detail(Request $request, $storeId)
+    {
+        // 店舗商品取得
+        $store = $this->storeRepository->getStoreProducts($storeId);
+
+        return view('store.detail', compact('store'));
     }
 }

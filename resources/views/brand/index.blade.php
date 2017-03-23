@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('header')
-    <link href="/css/brand.css" rel="stylesheet" type="text/css">
+    <link href="/css/brands/brand.css" rel="stylesheet" type="text/css">
 @endsection
 
 @section('title', 'ブランド一覧')

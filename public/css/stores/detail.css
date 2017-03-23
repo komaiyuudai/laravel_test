@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+h2 {
+    border-bottom: solid 3px;
+}
+
+div.product-list {
+    height: 250px;
+    width: 200px;
+    display: inline-block;
+    margin: 5px 5px 5px 5px;
+}
+
+span.product-detail img {
+    height: 200px;
+    width: 150px;
+}
+
+span.product-detail {
+    display: block;
+}

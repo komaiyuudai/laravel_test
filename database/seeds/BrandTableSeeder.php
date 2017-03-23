@@ -42,6 +42,7 @@ class BrandTableSeeder extends Seeder
             $datas[] = [
                 'id'            => $i,
                 'name'          => $names[$i - 1],
+                'store_id'      => rand(1, 16),
                 'created_at'    => $date->format('Y-m-d H:i:s'),
                 'updated_at'    => $date->format('Y-m-d H:i:s'),
             ];

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('header')
-    <link href="/css/left-content.css" rel="stylesheet" type="text/css">
-    <link href="/css/top.css" rel="stylesheet" type="text/css">
+    <link href="/css/layouts/left-content.css" rel="stylesheet" type="text/css">
+    <link href="/css/tops/top.css" rel="stylesheet" type="text/css">
 @endsection
 @section('title', 'TOPページ')
 @section('content')
@@ -14,6 +14,9 @@
             @foreach ($newProducts as $product)
             <div class="product">
                 <div class="product-img">
+                    <a href="/{{ $product->Store->id }}/{{ $product->Brand->id }}/{{ $product->id }}">
+                        <img src="/">
+                    </a>
                 </div>
                 <div class="discription">
                     <span id="brand-name" class="detail">{{ $product->Brand->name }}</span>

@@ -54,26 +54,27 @@ Route::group(['prefix' => 'user', 'namespace' => 'User'], function() {
 
 // 店舗
 Route::group(['prefix' => 'store'], function() {
-    $this->get('/', 'StoreController@index');
+    $this->get('/', 'StoreController@index')->name('store_index');
+    $this->get('/{store_id}', 'StoreController@detail')->name('store_detail');
 });
 
 // ブランド
 Route::group(['prefix' => 'brand'], function() {
-    $this->get('/', 'BrandController@index');
-    $this->get('/{brand_id}', 'BrandController@detail');
+    $this->get('/', 'BrandController@index')->name('brand_index');
+    $this->get('/{brand_id}', 'BrandController@detail')->name('brand_detail');
 });
 
 // ランキング
 Route::group(['prefix' => 'ranking'], function() {
-    $this->get('/', 'RankingController@index');
+    $this->get('/', 'RankingController@index')->name('ranking_index');
 });
 
 // 検索
 Route::group(['prefix' => 'search'], function() {
-    $this->get('/', 'SearchController@index');
+    $this->get('/', 'SearchController@index')->name('search_index');
 });
 
 // 商品
 Route::group(['prefix' => '{store_id}/{brand_id}/{product_id}'], function() {
-    $this->get('/', 'ProductController@index');
+    $this->get('/', 'ProductController@detail')->name('product_index');
 });
