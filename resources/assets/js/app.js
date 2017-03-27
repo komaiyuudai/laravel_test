@@ -13,8 +13,10 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+Vue.component('examplee', require('./components/Example.vue'));
+Vue.component('top', require('./components/tops/index.vue'));
 
-const app = new Vue({
-    el: '#app'
+const top = new Vue({
+    el: '#content-top',
 });
+

@@ -21,11 +21,11 @@
             @include('layouts.breadcrumb')
             @yield('content')
         </div> 
-<!-- 
+
         <div id="app">
             <example></example>
         </div>
- -->
+
         <script src="js/app.js"></script>
     </body>
 </html>

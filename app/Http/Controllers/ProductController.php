@@ -29,4 +29,23 @@ class ProductController extends Controller
 
         return view('product/detail', compact('product'));
     }
+
+    /**
+     * api 新着商品取得
+     */
+    public function getNewProduct()
+    {
+        $products = $this->productRepository->getNewProducts();
+        $sendDatas = $products->map(function ($item){
+            return [
+                'url'           => '/' . $item->store_id . '/' . $item->brand_id . '/' . $item->id,
+                'product_name'  => $item->name,
+                'price'         => number_format($item->price),
+                'store_name'    => $item->store->name,
+                'brand_name'    => $item->brand->name,
+            ];
+        });
+
+        return response()->json($sendDatas->toArray(), 200);
+    }
 }
