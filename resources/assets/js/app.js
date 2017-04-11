@@ -15,6 +15,7 @@ require('./bootstrap');
 
 Vue.component('examplee', require('./components/Example.vue'));
 Vue.component('top', require('./components/tops/index.vue'));
+Vue.component('store', require('./components/stores/index.vue'));
 
 const top = new Vue({
     el: '#content-top',

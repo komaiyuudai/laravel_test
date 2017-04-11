@@ -40,4 +40,16 @@ class StoreController extends Controller
 
         return view('store.detail', compact('store'));
     }
+
+    /**
+     * API 店舗一覧取得
+     */
+    public function getStoreList()
+    {
+        // 店舗取得
+        $stores = $this->storeRepository->getStores();
+
+        return response()->json($stores->toArray(), 200);
+
+    }
 }
